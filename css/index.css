@@ -4,7 +4,9 @@ html, body {
   padding: 0;
   overflow: hidden;
   background: #222222;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
+  direction: rtl;
+  text-align: right;
 }
 
 body {
@@ -18,10 +20,10 @@ body {
   z-index: 2;
   position: fixed;
   top: 2%;
-  left: 2%;
+  right: 2%;
   width: 100vw;
   display: flex;
-  justify-content: left;
+  justify-content: right;
   pointer-events: none;
 }
 
@@ -107,16 +109,20 @@ body {
   right: 5px;
   overflow-y: auto;
   overflow-x: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
 }
 
 /* Floating Menu */
 .floating-menu {
   position: fixed;
   top: 2%;
-  right: 2%;
+  left: 2%;
   z-index: 1000;
   display: flex;
   gap: 10px;
+  direction: rtl;
 }
 
 .menu-btn {
@@ -129,7 +135,9 @@ body {
   font-size: 15px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   transition: all 0.3s;
-  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
+  direction: rtl;
 }
 
 .menu-btn:hover {
@@ -156,9 +164,10 @@ body {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
   text-align: center;
-  height: fit-content - 5%;
+  min-height: 300px;
+  direction: rtl;
 }
 
 .popup h2 {
@@ -199,7 +208,7 @@ body {
 .close-btn {
   position: absolute;
   top: 15px;
-  right: 15px;
+  left: 15px;
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -719,7 +728,10 @@ body {
   align-items: center;
   display: flex;
   margin: 0 auto;
-  left: 5%;
+  right: 5%;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
+  direction: rtl;
+  text-align: right;
 }
 
 /* Button Container */
@@ -740,6 +752,7 @@ body {
   top: 40%;
   left: 5px;
   right: 5px;
+  direction: rtl;
 }
 
 #button-container button {
@@ -755,6 +768,8 @@ body {
   height: 50px;
   margin: 0 auto;
   box-sizing: border-box;
+  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
+  direction: rtl;
 }
 
 #button-container button:hover {
