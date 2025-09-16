@@ -32,10 +32,10 @@ document.getElementById('generate-cache-btn').addEventListener('click', () => {
   fetch('/generate_manifest', { method: 'POST' })
     .then(response => response.json())
     .then(data => {
-      alert(data.message);
+  alert(data.message); // إذا كانت الرسالة من السيرفر بالعربية ستظهر كما هي
     })
     .catch(error => {
-      alert('Error: ' + error + "\nThis option only work on local server !\nPlease make sure you'r server is up.");
+  alert('خطأ: ' + error + "\nهذا الخيار يعمل فقط على الخادم المحلي!\nيرجى التأكد أن الخادم يعمل.");
     });
 });
 
@@ -43,15 +43,15 @@ document.getElementById('update-exploit').addEventListener('click', () => {
   fetch('/update_exploit', { method: 'POST' })
     .then(res => res.json())
     .then(data => {
-      document.getElementById('console').textContent = data.results.join('\n') + "\nPlease don't forget to update the cache !";
+  document.getElementById('console').textContent = data.results.join('\n') + "\nيرجى عدم نسيان تحديث الذاكرة المؤقتة!";
     })
     .catch(err => {
-      alert('Error: ' + err + "\nThis option only work on local server !\nPlease make sure you'r server is up.");
+  alert('خطأ: ' + err + "\nهذا الخيار يعمل فقط على الخادم المحلي!\nيرجى التأكد أن الخادم يعمل.");
     });
 });
 
 ckbaj.addEventListener('change', (e) => {
-  //alert("WARNING :\nThis option make the jailbreak unstable and this option is not recommended please use the jailbreak button instead !");
+  //alert("تحذير: هذا الخيار قد يجعل الجلبريك غير مستقر ولا يُنصح به، استخدم زر الجلبريك بدلاً من ذلك!");
   localStorage.setItem('autojbstate', e.target.checked);
   onCheckboxChange(e.target.checked);
 });
@@ -122,8 +122,8 @@ function CheckFW() {
       fwVersion === '8.50' || fwVersion === '8.52' || fwVersion === '9.04' ||
       fwVersion === '9.50' || fwVersion === '9.51'
     ) {
-      document.getElementById('PS4FW').textContent = `PS4 FW: ${fwVersion} | Compatible`;
-      document.getElementById('PS4FW').style.color = 'green';
+  document.getElementById('PS4FW').textContent = `إصدار النظام: ${fwVersion} | متوافق`;
+  document.getElementById('PS4FW').style.color = 'green';
       ps4fw = fwVersion.replace('.', '');
       document.getElementById('install-psfrf').style.display = 'flex';
       if (ps4fw === '903' || ps4fw === '960') {
@@ -133,8 +133,8 @@ function CheckFW() {
         document.getElementById('linuxb').style.display = 'flex';
       }
     } else {
-      document.getElementById('PS4FW').textContent = `PS4 FW: ${fwVersion || 'Unknown'} | Incompatible`;
-      document.getElementById('PS4FW').style.color = 'red';
+  document.getElementById('PS4FW').textContent = `إصدار النظام: ${fwVersion || 'غير معروف'} | غير متوافق`;
+  document.getElementById('PS4FW').style.color = 'red';
 
       elementsToHide.forEach(id => {
         const el = document.getElementById(id);
@@ -152,8 +152,8 @@ function CheckFW() {
     else if (/Windows/.test(userAgent)) platform = 'Windows';
     else if (/Linux/.test(userAgent)) platform = 'Linux';
 
-    document.getElementById('PS4FW').textContent = `You're not on a PS4, platform: ${platform}`;
-    document.getElementById('PS4FW').style.color = 'red';
+  document.getElementById('PS4FW').textContent = `أنت لست على جهاز PS4، النظام: ${platform}`;
+  document.getElementById('PS4FW').style.color = 'red';
 
     elementsToHide.forEach(id => {
       const el = document.getElementById(id);
@@ -322,11 +322,11 @@ function loadajbsettings(){
 
   if (ckbaj.checked) {
     if (sessionStorage.getItem('jbsuccess')) {
-      consoleDev.append(`Already jailbroken !\n`);
+  consoleDev.append(`تم تنفيذ الجلبريك بالفعل!\n`);
       consoleDev.scrollTop = consoleDev.scrollHeight;
     } else {
       document.getElementById('jailbreak').style.display = 'none';
-      consoleDev.append(`Auto jailbreaking... Please wait for a few seconds.\n`);
+  consoleDev.append(`جاري تنفيذ الجلبريك تلقائيًا... يرجى الانتظار بضع ثوانٍ.\n`);
       consoleDev.scrollTop = consoleDev.scrollHeight;
       setTimeout(() => {
         jailbreak();
@@ -364,7 +364,7 @@ function loadajbsettings(){
 async function jailbreak() {
   try {
     if (sessionStorage.getItem('jbsuccess')) {
-      consoleDev.append(`Aleardy jailbroken !\n`);
+  consoleDev.append(`تم تنفيذ الجلبريك بالفعل!\n`);
       consoleDev.scrollTop = consoleDev.scrollHeight;
     } else {
       document.getElementById('jailbreak').style.display = 'none';
@@ -372,31 +372,31 @@ async function jailbreak() {
         '../payloads/Jailbreak.js',
         '../psfree/alert.mjs'
       ]);
-      console.log("All modules are loaded!");
+  console.log("تم تحميل جميع الوحدات!");
       const JailbreakModule = modules[0];
 
       if (localStorage.getItem('HEN')) {
         if (JailbreakModule && typeof JailbreakModule.HEN === 'function') {
             JailbreakModule.HEN();
         } else {
-            console.error("HEN function not found in Jailbreak.js module");
+            console.error("دالة HEN غير موجودة في وحدة Jailbreak.js");
         }
       } else if (localStorage.getItem('GoldHEN')) {
         if (JailbreakModule && typeof JailbreakModule.GoldHEN === 'function') {
             JailbreakModule.GoldHEN();
         } else {
-            console.error("GoldHEN function not found in Jailbreak.js module");
+            console.error("دالة GoldHEN غير موجودة في وحدة Jailbreak.js");
         }
       } else {
         if (JailbreakModule && typeof JailbreakModule.GoldHEN === 'function') {
             JailbreakModule.GoldHEN();
         } else {
-            console.error("GoldHEN function not found in Jailbreak.js module");
+            console.error("دالة GoldHEN غير موجودة في وحدة Jailbreak.js");
         }
       }
     }
   } catch (e) {
-    console.error("Failed to jailbreak:", e);
+  console.error("فشل تنفيذ الجلبريك:", e);
   }
 }
 
@@ -406,16 +406,16 @@ async function binloader() {
     const modules = await loadMultipleModules([
       '../psfree/alert.mjs'
     ]);
-    console.log("All modules are loaded!");
+  console.log("تم تحميل جميع الوحدات!");
 
     const goldhenModule = modules[0];
     if (goldhenModule && typeof goldhenModule.runBinLoader === 'function') {
       goldhenModule.runBinLoader();
     } else {
-      console.error("GoldHEN function not found in GoldHEN.js module");
+  console.error("دالة GoldHEN غير موجودة في وحدة GoldHEN.js");
     }
   } catch (e) {
-    console.error("Failed to jailbreak:", e);
+  console.error("فشل تنفيذ الجلبريك:", e);
   }
 }
 
@@ -428,7 +428,7 @@ async function Loadpayloads(payload) {
         '../payloads/payloads.js',
         '../psfree/alert.mjs'
       ]);
-      console.log("All modules are loaded!");
+  console.log("تم تحميل جميع الوحدات!");
     } else {
       modules = await loadMultipleModules([
         '../payloads/payloads.js'
@@ -440,10 +440,10 @@ async function Loadpayloads(payload) {
     if (payloadModule && typeof payloadModule[payload] === 'function') {
       payloadModule[payload]();
     } else {
-      console.error(`${payload} function not found in payloads.js module`);
+  console.error(`دالة ${payload} غير موجودة في وحدة payloads.js`);
     }
   } catch (e) {
-    console.error(`Failed to load ${payload}:`, e);
+  console.error(`فشل تحميل ${payload}:`, e);
   }
 }
 
@@ -456,8 +456,8 @@ function loadsettings() {
 
 function onCheckboxChange(checked) {
   if (checked) {
-    console.log('Checkbox is checked!');
+  console.log('تم تفعيل الخيار!');
   } else {
-    console.log('Checkbox is unchecked!');
+  console.log('تم إلغاء تفعيل الخيار!');
   }
 }
