@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html manifest="./PSFree.manifest">
+<html dir="rtl" lang="ar">
   <head>
     <script>
-        function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="Installing offline cache: " + Percent + "%";}
-        function DisplayCacheProgress(){setTimeout(function(){;document.title="Cache Success !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+        function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));document.title="تثبيت الذاكرة المؤقتة غير متصل: " + Percent + "%";}
+        function DisplayCacheProgress(){setTimeout(function(){;document.title="نجح تحديث الذاكرة المؤقتة !";},1000);setTimeout(function(){window.location.href = document.referrer;},3000);}
+        if (window.applicationCache) {
+            window.applicationCache.addEventListener("progress",DLProgress,false);
+            window.applicationCache.oncached=function(e){DisplayCacheProgress();};
+            window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
+        }
     </script>
     <meta charset="UTF-8">
     <title>PSFree</title>
@@ -12,11 +17,11 @@
   <body>
     <!-- Floating Menu -->
     <div class="floating-menu">
-      <button onclick="showpayloads()" class="menu-btn" id="payloadsbtn">Payloads</button>
-      <button class="menu-btn" id="generate-cache-btn">Force-Cache</button>
-      <button class="menu-btn" id="update-exploit">Update-Exploit</button>
-      <button onclick="showsettings()" class="menu-btn" id="settings-btn">Settings</button>
-      <button onclick="showabout()" class="menu-btn" id="about-btn">About</button>
+      <button onclick="showpayloads()" class="menu-btn" id="payloadsbtn">الحمولات</button>
+      <button class="menu-btn" id="generate-cache-btn">إنشاء ذاكرة التخزين المؤقت</button>
+      <button class="menu-btn" id="update-exploit">تحديث الاستغلال</button>
+      <button onclick="showsettings()" class="menu-btn" id="settings-btn">الإعدادات</button>
+      <button onclick="showabout()" class="menu-btn" id="about-btn">حول</button>
     </div>
 
     <div class="header">
@@ -25,7 +30,7 @@
 
     <pre id="update-results" style="white-space: pre-wrap; margin-top: 10px;"></pre>
 
-    <h2 id="PS4FW">PS4 FW: 0.00 | Compatible</h2>
+    <h2 id="PS4FW">PS4 FW: 0.00 | متوافق</h2>
 
     <div id="jailbreak-page">
       <div class="center-btn-wrap">
@@ -41,43 +46,43 @@
     
     <div id="payloads-page" style="display: none;">
       <nav class="floating-menu-payloads">
-        <button id="toolb" onclick="showtoolspayloads()">Tools</button>
-        <button id="gameb" onclick="showgamepayloads()">Games</button>
-        <button style="display: none;" id="linuxb" onclick="showlinuxpayloads()">Linux</button>
+        <button id="toolb" onclick="showtoolspayloads()">أدوات</button>
+        <button id="gameb" onclick="showgamepayloads()">ألعاب</button>
+        <button style="display: none;" id="linuxb" onclick="showlinuxpayloads()">لينكس</button>
       </nav>
       <div id="payloads-tools" style="display: block;">
-        <h2 id="tools">Tools</h2>
-          <div class="button-container" id="button-container">
-            <button id="binloader">Bin-Loader</button>
-            <button data-func="load_AppDumper">App-Dumper</button>
-            <button data-func="load_KernelDumper">Kernel-Dumper</button>
-            <button data-func="load_VTXDumper">PS4-Dumper-VTX</button>
-            <button data-func="load_App2USB">App2USB</button>
-            <button data-func="load_DisableUpdates">Disable-Updates</button>
-            <button data-func="load_EnableUpdates">Enable-Updates</button>
+        <h2 id="tools">أدوات</h2>
+          <div class="button-container" id="tools-container">
+            <button id="binloader">محمّل الثنائيات</button>
+            <button data-func="load_AppDumper">استخراج-التطبيق</button>
+            <button data-func="load_KernelDumper">استخراج-النواة</button>
+            <button data-func="load_VTXDumper">استخراج-PS4-VTX</button>
+            <button data-func="load_App2USB">تطبيق-إلى-USB</button>
+            <button data-func="load_DisableUpdates">تعطيل-التحديثات</button>
+            <button data-func="load_EnableUpdates">تفعيل-التحديثات</button>
             <button data-func="load_FTP">FTP</button>
-            <button data-func="load_HistoryBlocker">History-Blocker</button>
-            <button data-func="load_KernelClock">Kernel-Clock</button>
-            <!--<button data-func="load_Orbis">Orbis-Toolbox</button>-->
-            <button data-func="load_PS4Debug">PS4-Debug</button>
-            <button data-func="load_ToDex">ToDex</button>
-            <button data-func="load_ToDev">ToDev</button>
-            <button data-func="load_ToKratos">ToKratos</button>
-            <button data-func="load_ToCex">ToCex</button>
-            <button data-func="load_BackupDB">Backup-DB</button>
-            <button data-func="load_RestoreDB">Restore-DB</button>
-            <button data-func="load_RIFRenamer">RIF-Renamer</button>
-            <button data-func="load_ExitIDU">ExitIDU</button>
-            <button data-func="load_DisableASLR">Disable-ASLR</button>
-            <button data-func="load_ModuleDumper">Module-Dumper</button>
+            <button data-func="load_HistoryBlocker">مانع السجل</button>
+            <button data-func="load_KernelClock">ساعة-النواة</button>
+            <!--<button data-func="load_Orbis">صندوق-أدوات-Orbis</button>-->
+            <button data-func="load_PS4Debug">PS4-تصحيح</button>
+            <button data-func="load_ToDex">إلى-Dex</button>
+            <button data-func="load_ToDev">إلى-Dev</button>
+            <button data-func="load_ToKratos">إلى-Kratos</button>
+            <button data-func="load_ToCex">إلى-Cex</button>
+            <button data-func="load_BackupDB">نسخ-احتياطي-DB</button>
+            <button data-func="load_RestoreDB">استعادة-DB</button>
+            <button data-func="load_RIFRenamer">إعادة-تسمية-RIF</button>
+            <button data-func="load_ExitIDU">خروج-IDU</button>
+            <button data-func="load_DisableASLR">تعطيل-ASLR</button>
+            <button data-func="load_ModuleDumper">استخراج-الوحدات</button>
             <!--<button data-func="load_WebrRTE">WebRTE</button>-->
-            <button data-func="load_PermanentUART">Permanent-UART</button>
-            <button data-func="load_PUPDecrypt">PUP-Decrypt</button>
+            <button data-func="load_PermanentUART">UART-دائم</button>
+            <button data-func="load_PUPDecrypt">فك-تشفير-PUP</button>
           </div>
       </div>
       <div id="payloads-game" style="display: none;">
-        <h2 id="tools">Game</h2>
-          <div class="button-container" id="button-container">
+        <h2 id="games-title">لعبة</h2>
+          <div class="button-container" id="games-container">
             <button data-func="load_GTAArbic">GTAV-ArabicGuy-1.27</button>
             <button data-func="load_GTAArbic3">GTAV-ArabicGuy-1.32</button>
             <button data-func="load_GTAArbic33">GTAV-ArabicGuy-1.33</button>
@@ -95,34 +100,34 @@
           </div>
       </div>
       <div id="payloads-linux" style="display: none;">
-          <h2 id="tools">Linux</h2>
-          <div class="button-container" id="button-container">
+          <h2 id="linux-title">لينكس</h2>
+          <div class="button-container" id="linux-container">
             <h2 style="text-align: center;">PS4</h2>
-            <button data-func="load_Linux">1GBVram</button>
-            <button data-func="load_Linux2gb">2GBVram</button>
-            <button data-func="load_Linux3gb">3GBVram</button>
-            <button data-func="load_Linux4gb">4GBVram</button>
+            <button data-func="load_Linux">1 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux2gb">2 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux3gb">3 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux4gb">4 جيجابايت ذاكرة رسومية</button>
             <h2 style="text-align: center;">PS4-PRO</h2>
-            <button data-func="load_Linux_PRO">1GBVram</button>
-            <button data-func="load_Linux2gb_PRO">2GBVram</button>
-            <button data-func="load_Linux3gb_PRO">3GBVram</button>
-            <button data-func="load_Linux4gb_PRO">4GBVram</button>
+            <button data-func="load_Linux_PRO">1 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux2gb_PRO">2 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux3gb_PRO">3 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux4gb_PRO">4 جيجابايت ذاكرة رسومية</button>
             <h2 style="text-align: center;">PS4-Baikal</h2>
-            <button data-func="load_Linux_Baikal">1GBVram</button>
-            <button data-func="load_Linux2gb_Baikal">2GBVram</button>
-            <button data-func="load_Linux3gb_Baikal">3GBVram</button>
-            <button data-func="load_Linux4gb_Baikal">4GBVram</button>
+            <button data-func="load_Linux_Baikal">1 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux2gb_Baikal">2 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux3gb_Baikal">3 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux4gb_Baikal">4 جيجابايت ذاكرة رسومية</button>
             <h2 style="text-align: center;">PS4-Baikal-PRO</h2>
-            <button data-func="load_Linux_PRO_Baikal">1GBVram</button>
-            <button data-func="load_Linux2gb_PRO_Baikal">2GBVram</button>
-            <button data-func="load_Linux3gb_PRO_Baikal">3GBVram</button>
-            <button data-func="load_Linux4gb_PRO_Baikal">4GBVram</button>
+            <button data-func="load_Linux_PRO_Baikal">1 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux2gb_PRO_Baikal">2 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux3gb_PRO_Baikal">3 جيجابايت ذاكرة رسومية</button>
+            <button data-func="load_Linux4gb_PRO_Baikal">4 جيجابايت ذاكرة رسومية</button>
           </div>
       </div>
     </div>
     
     <div id="DebugConsole">
-      <h3>Debug Console</h3>
+      <h3>وحدة تحكم التصحيح</h3>
     
       <div class="console" style="padding: 20px;"><pre id='console'></pre></div>
     </div>
@@ -131,13 +136,13 @@
     <!-- About Popup -->
     <div class="overlay" id="overlay-popup"></div>
     <div class="popup" id="about-popup">
-      <h2>About PSFree</h2>
+      <h2>حول PSFree</h2>
       <div>
-        <p>Version: 1.5.1</p>
-        <p>A simple web interface for PS4 jailbreak.</p>
+        <p>الإصدار: 1.5.1</p>
+        <p>واجهة ويب بسيطة لكسر حماية PS4.</p>
       </div>
       <div class="credits">
-        <h3>Credits</h3>
+        <h3>الشكر والتقدير</h3>
         <div class="credits-container">
           <a href="https://github.com/Al-Azif" target="_blank">Al-Azif</a>
           <a href="https://github.com/kmeps4" target="_blank">kmeps4</a>
@@ -153,13 +158,12 @@
     </div>
 
     <!-- Settings Popup -->
-    <div class="overlay" id="overlay-popup"></div>
     <div class="popup" id="settings-popup">
-      <h2>Settings PSFree</h2>
+      <h2>إعدادات PSFree</h2>
       <div class="main-container">
         <div class="listfw-container">
           <div class="settings-container">
-            <h3>PS4 Firmwares supported</h3>
+            <h3>إصدارات PS4 المدعومة</h3>
             <div id="listfw">
               <p>7.00</p>
               <p>7.01</p>
@@ -184,7 +188,7 @@
         
         <div class="choosejb-container">
           <div class="settings-container">
-            <h3>Choose your flavor</h3>
+            <h3>اختر نوعك المفضل</h3>
             <div class="radio-group">
               <label>
                 <input type="radio" name="hen" value="GoldHEN" onchange="savejbflavor(); choosejb('GoldHEN')"> GoldHEN
@@ -195,18 +199,18 @@
             </div>
               <label>
                 <input type="checkbox" id="ckbaj" />
-                <span>Auto-Jailbreak</span>
+                <span>كسر حماية تلقائي</span>
               </label>
               <label>
                 <input type="checkbox" id="ckbdc" checked />
-                <span>Enable Debug Console</span>
+                <span>تفعيل وحدة تحكم التصحيح</span>
               </label>
           </div>
         </div>
       </div>
       
       <div class="button-container">
-        <button data-func="load_PSFreeFix" class="install-psfrf" id="install-psfrf" style="display: none;">Install PSFree-Fix</button>
+        <button data-func="load_PSFreeFix" class="install-psfrf" id="install-psfrf" style="display: none;">تثبيت PSFree-Fix</button>
       </div>
       <button onclick="closesettings()" class="close-btn" id="close-settings"></button>
     </div>
