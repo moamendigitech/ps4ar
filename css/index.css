@@ -4,9 +4,14 @@ html, body {
   padding: 0;
   overflow: hidden;
   background: #222222;
-  font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
+  font-family: 'Noto Sans Arabic', Arial, Tahoma, sans-serif !important;
   direction: rtl;
   text-align: right;
+}
+
+/* تطبيق الخط على جميع العناصر */
+body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, pre, label, div, span {
+  font-family: 'Noto Sans Arabic', Arial, Tahoma, sans-serif !important;
 }
 
 body {
@@ -15,7 +20,8 @@ body {
   position: relative;
 }
 
-/* Header Styles */
+
+/* رأس الصفحة */
 .header {
   z-index: 2;
   position: fixed;
@@ -37,10 +43,11 @@ body {
   border-radius: 18px;
   padding: 10px 48px;
   pointer-events: auto;
-  border: 3px solid #FFB84D; 
+  border: 3px solid #FFB84D;
 }
 
-/* Center Button */
+
+/* زر الجلبريك في المنتصف */
 .center-btn-wrap {
   position: absolute;
   left: 50%;
@@ -91,16 +98,17 @@ body {
   transition: 0.5s;
 }
 
-/* Console */
+
+/* وحدة تحكم التصحيح */
 #console {
   color: #FFF;
   background-color: #6f707433;
   border-radius: 18px;
   width: 90%;
   height: 18%;
-  margin: 0 auto; 
+  margin: 0 auto;
   border: 1px solid #FFB84D;
-  padding: 10px; 
+  padding: 10px;
   display: flex;
   align-items: center;
   position: absolute;
@@ -114,7 +122,8 @@ body {
   font-family: 'Arial', sans-serif, 'Traditional Arabic', 'Noto Sans Arabic';
 }
 
-/* Floating Menu */
+
+/* القائمة العائمة الرئيسية */
 .floating-menu {
   position: fixed;
   top: 2%;
@@ -145,7 +154,8 @@ body {
   color: #222222;
 }
 
-/* Popups */
+
+/* النوافذ المنبثقة */
 .popup {
   position: fixed;
   top: 50%;
@@ -248,7 +258,8 @@ body {
   transform: rotate(-45deg) scale(1.1);
 }
 
-/* Main Content Containers */
+
+/* الحاوية الرئيسية للمحتوى */
 .main-container {
   display: flex;
   flex-direction: column-reverse;
@@ -309,7 +320,8 @@ body {
   text-decoration: none;
 }
 
-/* Settings Page - Two Equal Rows */
+
+/* إعدادات الصفحة */
 .settings-container {
   margin: 15px auto;
   background-color: #dddddd;
@@ -589,7 +601,8 @@ body {
 }
 
 
-/* Jailbreak Selection */
+
+/* اختيار نوع الجلبريك */
 #choosejb {
   width: 100%;
   display: flex;
@@ -929,7 +942,8 @@ body {
   margin-right: 5px;
 }
 
-/* Loader */
+
+/* دائرة التحميل */
 .loader {
   position: fixed;
   top: 50%;
